@@ -1,0 +1,13 @@
+services:
+  alpine-ssh2:
+    image: alpine-ssh2
+    container_name: alpine-ssh2
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor=unconfined
+    ports:
+      - "2202:22" # Map host port 2202 to container port 22
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped

@@ -1,0 +1,11 @@
+services:
+  alpine-ssh:
+    image: alpine-ssh
+    container_name: alpine-ssh
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - apparmor=unconfined
+    ports:
+      - "2022:22" # Map host port 2022 to container port 22
+    restart: unless-stopped

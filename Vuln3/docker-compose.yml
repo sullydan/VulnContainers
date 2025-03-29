@@ -1,0 +1,14 @@
+services:
+  alpine-ssh3:
+    image: alpine-ssh3
+    container_name: alpine-ssh3
+    privileged: true
+    security_opt:
+      - apparmor=unconfined
+    ports:
+      - "2222:22" # Map host port 2222 to container port 22
+    pid: host
+#    network_mode: host
+    ipc: host
+    uts: host
+    restart: unless-stopped
